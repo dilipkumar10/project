@@ -1,0 +1,29 @@
+<div class="container mt-3 ml-2">
+    <table class="table table-bordered table-hover">
+        <thead class="one">
+            <tr>
+                <th>S.No</th>
+                <th>Screen Id</th>
+                <th>Screen Name</th>
+                <th>Rows</th>
+                <th>Columns</th>
+                <th>Movie End Date</th>
+                <th>Theater Id</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let screen of screens ;index as i'>
+                <td>{{i+1}}</td>
+                <td>{{screen.screenId}}</td>
+                <td>{{screen.screenName}}</td>
+                <td>{{screen.rows}}</td>
+                <td>{{screen.columns}}</td>
+                <td>{{screen.movieEndDate}}</td>
+                <td>{{screen.theaterId}}</td>
+                <td> <button class="btn btn-outline-danger" (click)='deleteScreen(screen)'>Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

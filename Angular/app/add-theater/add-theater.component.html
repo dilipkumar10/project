@@ -1,0 +1,89 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #addTheaterForm='ngForm' (ngSubmit)='addTheater(addTheaterForm)'>
+        <div class="form-group">
+            <label for="theaterId">Theater Id</label>
+            <input type="text" name="theaterId" id="theaterId" #theaterId='ngModel' ngModel class="form-control"
+                pattern="^[2]+[0-9]*$" minlength="4" placeholder="Enter Theater Id" required>
+            <div class="validationText" *ngIf='theaterId.invalid &&(theaterId.dirty || theaterId.touched)'>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.pattern'>
+                    *First digit should be 2.
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.minlength'>
+                    *TheaterId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="theaterName">Theater Name</label>
+            <input type="text" name="theaterName" id="theaterName" #theaterName='ngModel' ngModel class="form-control"
+                pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="3" placeholder="Enter Theater Name" required>
+            <div class="validationText" *ngIf='(theaterName.dirty || theaterName.touched) && theaterName.invalid'>
+                <div class="alert alert-danger" *ngIf='theaterName.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterName.errors.minlength'>
+                    *minimum 3 letters mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterName.errors.pattern'>
+                    *only alphabets are allowed
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="theaterCity">Theater City</label>
+            <input type="text" name="theaterCity" id="theaterCity" #theaterCity='ngModel' ngModel class="form-control"
+                pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="3" placeholder="Enter Theater City" required>
+            <div class="validationText" *ngIf='(theaterCity.dirty || theaterCity.touched) && theaterCity.invalid'>
+                <div class="alert alert-danger" *ngIf='theaterCity.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterCity.errors.minlength'>
+                    *minimum 3 letters mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterCity.errors.pattern'>
+                    *only alphabets are allowed
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="managerName">Manager Name</label>
+            <input type="text" name="managerName" id="managerName" #managerName='ngModel' ngModel class="form-control"
+                pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="3" placeholder="Enter Theater City" required>
+            <div class="validationText" *ngIf='(managerName.dirty || managerName.touched) && managerName.invalid'>
+                <div class="alert alert-danger" *ngIf='managerName.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='managerName.errors.minlength'>
+                    *minimum 3 letters mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='managerName.errors.pattern'>
+                    *only alphabets are allowed
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="managerContact">Manager Contact</label>
+            <input type="text" name="managerContact" id="managerContact" #managerContact='ngModel' ngModel
+                class="form-control" pattern="[0-9]+" minlength="10" maxlength="10" placeholder="Enter Manager Contact"
+                required>
+            <div class="validationText"
+                *ngIf='managerContact.invalid &&(managerContact.dirty || managerContact.touched)'>
+                <div class="alert alert-danger" *ngIf='managerContact.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='managerContact.errors.pattern'>
+                    *Enter numbers only.
+                </div>
+                <div class="alert alert-danger" *ngIf='managerContact.errors.minlength'>
+                    *Only enter 10 Digit Mobile No
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary float-right" [disabled]="addTheaterForm.invalid">
+            Sumbit</button>
+    </form>
+</div>

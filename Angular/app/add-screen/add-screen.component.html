@@ -1,0 +1,69 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #addScreenForm='ngForm' (ngSubmit)='addScreen(addScreenForm)'>
+        <div class="form-group">
+            <label for="screenId">screen Id</label>
+            <input type="text" name="screenId" id="screenId" #screenId='ngModel' ngModel class="form-control"
+                pattern="^[1-9]+[0-9]*$" minlength="4" placeholder="Enter Screen Id" required>
+            <div class="validationText" *ngIf='screenId.invalid &&(screenId.dirty || screenId.touched)'>
+                <div class="alert alert-danger" *ngIf='screenId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='screenId.errors.pattern'>
+                    *only numbers are allowed.
+                </div>
+                <div class="alert alert-danger" *ngIf='screenId.errors.minlength'>
+                    *ScreenId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="screenName">Screen Name</label>
+            <input type="text" name="screenName" id="screenName" #screenName='ngModel' ngModel class="form-control"
+                placeholder="Enter Screen Name" required>
+        </div>
+        <div class="form-group">
+            <label for="movieEndDate">Movie End Date</label>
+            <input type="date" name="movieEndDate" id="movieEndDate" #movieEndDate='ngModel' ngModel
+                class="form-control" min="2020-06-10" required>
+        </div>
+        <div class="form-group">
+            <label for="rows">Rows</label>
+            <input type="text" name="rows" id="rows" #rows='ngModel' ngModel class="form-control"
+                pattern="^[8-9]+[0-9]*$" placeholder="Enter the number of rows" required>
+            <div class="validationText" *ngIf='rows.invalid &&(rows.dirty || rows.touched)'>
+                <div class="alert alert-danger" *ngIf='rows.errors.required'>
+                    *This field is mandatory
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="columns">columns</label>
+            <input type="text" name="columns" id="columns" #columns='ngModel' ngModel class="form-control"
+                placeholder="Enter the number of columns" required>
+            <div class="validationText" *ngIf='columns.invalid &&(columns.dirty || columns.touched)'>
+                <div class="alert alert-danger" *ngIf='columns.errors.required'>
+                    *This field is mandatory
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="theaterId">Theater Id</label>
+            <input type="text" name="theaterId" id="theaterId" #theaterId='ngModel' ngModel class="form-control"
+                pattern="^[2]+[0-9]*$" minlength="4" placeholder="Enter Theater Id" required>
+            <div class="validationText" *ngIf='theaterId.invalid &&(theaterId.dirty || theaterId.touched)'>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.pattern'>
+                    *First digit should be 2.
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.minlength'>
+                    *TheaterId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary float-right" [disabled]="addScreenForm.invalid">
+            Sumbit</button>
+    </form>
+</div>

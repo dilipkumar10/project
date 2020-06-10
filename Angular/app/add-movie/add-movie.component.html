@@ -1,0 +1,87 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #addMovieForm='ngForm' (ngSubmit)='addMovie(addMovieForm)'>
+        <div class="form-group">
+            <label for="movieId">Movie Id</label>
+            <input type="text" name="movieId" id="movieId" #movieId='ngModel' ngModel class="form-control"
+                pattern="^[3]+[0-9]*$" minlength="4" placeholder="Enter Movie Id" required>
+            <div class="validationText" *ngIf='movieId.invalid &&(movieId.dirty || movieId.touched)'>
+                <div class="alert alert-danger" *ngIf='movieId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='movieId.errors.pattern'>
+                    *First digit should be three.
+                </div>
+                <div class="alert alert-danger" *ngIf='movieId.errors.minlength'>
+                    *movieId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="movieName">Movie Name</label>
+            <input type="text" name="movieName" id="movieName" #movieName='ngModel' ngModel class="form-control"
+                placeholder="Enter Movie Name" required>
+            <div class="validationText" *ngIf='movieName.invalid &&(movieName.dirty || movieName.touched)'>
+                <div class="alert alert-danger" *ngIf='movieName.errors.required'>
+                    *This field is mandatory
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="movieDirector">Movie Director</label>
+            <input type="text" name="movieDirector" id="movieDirector" #movieDirector='ngModel' ngModel
+                class="form-control" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="3"
+                placeholder="Enter Movie Director" required>
+            <div class="validationText" *ngIf='(movieDirector.dirty || movieDirector.touched) && movieDirector.invalid'>
+                <div class="alert alert-danger" *ngIf='movieDirector.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='movieDirector.errors.minlength'>
+                    *minimum 3 letters mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='movieDirector.errors.pattern'>
+                    *only alphabets are allowed
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="movieLength">Movie Length</label>
+            <input type="text" name="movieLength" id="movieLength" #movieLength='ngModel' ngModel class="form-control"
+                pattern="^[5-9]+[0-9]*$" minlength="2" placeholder="Enter movieLength in minutes" required>
+            <div class="validationText" *ngIf='movieLength.invalid &&(movieLength.dirty || movieLength.touched)'>
+                <div class="alert alert-danger" *ngIf='movieLength.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='movieLength.errors.pattern'>
+                    *Movie Length should be greater than fifty.
+                </div>
+                <div class="alert alert-danger" *ngIf='movieLength.errors.minlength'>
+                    *MovieLength must contain atleast 2 digits
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="movieReleaseDate">Movie Release Date</label>
+            <input type="date" name="movieReleaseDate" id="movieReleaseDate" #movieReleaseDate='ngModel' ngModel
+                class="form-control" min="2020-06-03" max="2023-08-31" format="yyyy-mm-dd" required>
+        </div>
+        <div class="form-group">
+            <label for="theaterId">Theater Id</label>
+            <input type="text" name="theaterId" id="theaterId" #theaterId='ngModel' ngModel class="form-control"
+                pattern="^[2]+[0-9]*$" minlength="4" placeholder="Enter Theater Id" required>
+            <div class="validationText" *ngIf='theaterId.invalid &&(theaterId.dirty || theaterId.touched)'>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.pattern'>
+                    *First digit should be 2.
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.minlength'>
+                    *TheaterId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary float-right" [disabled]="addMovieForm.invalid">
+            Sumbit</button>
+    </form>
+</div>

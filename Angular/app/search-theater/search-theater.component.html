@@ -1,0 +1,39 @@
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #searchForm='ngForm' (ngSubmit)='searchTheater(searchForm)'>
+        <div class="form-group">
+            <h1><label for="theaterId">Enter Theater Id</label></h1>
+            <input type="search" name="theaterId" id="theaterId" #theaterId='ngModel' ngModel pattern="^[2]+[0-9]*$"
+                minlength="4" placeholder="Enter Theater Id" required>
+            <div class="validationText"
+                *ngIf='theaterId.invalid &&(theaterId.dirty || theaterId.touched)'>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.pattern'>
+                    *First digit should be 2.
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.minlength'>
+                    *TheaterId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary" [disabled]="searchForm.invalid">
+            Sumbit</button>
+    </form>
+</div>
+<br>
+<br>
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="col-md-3 offset-4 mt-3" *ngFor='let theater of theaters'>
+    <div class="card border-dark" style="width: 35rem;">
+        <div class="card-header border-dark">
+            <h3>Theater ID: {{theater.theaterId}}</h3>
+        </div>
+        <div class="card-body text-black">
+            <p>Theater Name: {{theater.theaterName}}</p>
+            <p>Manager Name: {{theater.managerName}}</p>
+            <p>Manager Contact: {{theater.managerContact}}</p>
+            <p>Theater City: {{theater.theaterCity}}</p>
+        </div>
+    </div>
+</div>

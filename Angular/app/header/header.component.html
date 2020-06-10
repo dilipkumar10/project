@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+   
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/addTheater">addTheater</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/addMovie">addMovie</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/addScreen">addScreen</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/addShow">addShow</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/getAllTheaters">getAllTheaters</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/getAllScreens">getAllScreens</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/getAllMovies">getAllMovies</a>
+            </li>
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/getAllShows">getAllShows</a>
+            </li>
+          
+            <li class="nav-item active" *ngIf='isAdmin()'>
+                <a class="nav-link" routerLink="/searchTheater">Search Theater</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-0 mt-2 mt-lg-0">
+            <li class="nav-item active" *ngIf='!isLoggedIn()'>
+                <a class="nav-link" routerLink="signIn">Login</a>
+            </li>
+            <li class="nav-item active" *ngIf='isLoggedIn()'>
+                <a class="nav-link" (click)='logOut()' routerLink="/logOut">LogOut</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+

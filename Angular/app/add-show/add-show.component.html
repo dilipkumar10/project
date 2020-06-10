@@ -1,0 +1,85 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #addShowForm='ngForm' (ngSubmit)='addShow(addShowForm)'>
+        <div class="form-group">
+            <label for="showId">Show Id</label>
+            <input type="text" name="showId" id="showId" #showId='ngModel' ngModel class="form-control"
+                pattern="^[1-9]+[0-9]*$" minlength="3" placeholder="Enter Show Id" required>
+            <div class="validationText" *ngIf='showId.invalid &&(showId.dirty || showId.touched)'>
+                <div class="alert alert-danger" *ngIf='showId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='showId.errors.pattern'>
+                    *only numbers are allowed.
+                </div>
+                <div class="alert alert-danger" *ngIf='showId.errors.minlength'>
+                    *showId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="showStartTime">show Start Time</label>
+            <input type="time" name="showStartTime" id="showStartTime" #showStartTime='ngModel' ngModel
+                class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="showEndTime">show End Time</label>
+            <input type="time" min="showStartTime" name="showEndTime" id="showEndTime" #showEndTime='ngModel' ngModel class="form-control"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="showName">show Name</label>
+            <input type="text" name="showName" id="showName" #showName='ngModel' ngModel class="form-control"
+            placeholder="Enter Show name" required>
+            <div class="validationText" *ngIf='showName.invalid &&(showName.dirty || showName.touched)'>
+                <div class="alert alert-danger" *ngIf='showName.errors.required'>
+                    *This field is mandatory
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="movieName">movie Name</label>
+            <input type="text" name="movieName" id="movieName" #movieName='ngModel' ngModel class="form-control"
+              placeholder="Enter Movie Name"  required>
+            <div class="validationText" *ngIf='movieName.invalid &&(movieName.dirty || movieName.touched)'>
+                <div class="alert alert-danger" *ngIf='movieName.errors.required'>
+                    *This field is mandatory
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="theaterId">Theater Id</label>
+            <input type="text" name="theaterId" id="theaterId" #theaterId='ngModel' ngModel class="form-control"
+                pattern="^[2]+[0-9]*$" minlength="4" placeholder="Enter Theater Id" required>
+            <div class="validationText" *ngIf='theaterId.invalid &&(theaterId.dirty || theaterId.touched)'>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.pattern'>
+                    *First digit should be 2.
+                </div>
+                <div class="alert alert-danger" *ngIf='theaterId.errors.minlength'>
+                    *TheaterId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="screenId">Screen Id</label>
+            <input type="text" name="screenId" id="screenId" #screenId='ngModel' ngModel class="form-control"
+                pattern="^[1-9]+[0-9]*$" minlength="4" placeholder="Enter Screen Id" required>
+            <div class="validationText" *ngIf='screenId.invalid &&(screenId.dirty || screenId.touched)'>
+                <div class="alert alert-danger" *ngIf='screenId.errors.required'>
+                    *This field is mandatory
+                </div>
+                <div class="alert alert-danger" *ngIf='screenId.errors.pattern'>
+                    *only numbers are allowed.
+                </div>
+                <div class="alert alert-danger" *ngIf='screenId.errors.minlength'>
+                    *ScreenId must contain atleast 4 digits
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary float-right" [disabled]="addShowForm.invalid">
+            Sumbit</button>
+    </form>
+</div>

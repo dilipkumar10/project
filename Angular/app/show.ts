@@ -1,0 +1,4 @@
+interface Shows{
+    showId: number;
+
+}

@@ -1,0 +1,29 @@
+<div class="container mt-3 ml-2">
+    <table class="table table-bordered table-hover">
+        <thead class="one">
+            <tr>
+                <th>S.No</th>
+                <th>Movie Id</th>
+                <th>Movie Name</th>
+                <th>Movie Director</th>
+                <th>Movie Length</th>
+                <th>Movie Release Date</th>
+                <th>Theater Id</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let movie of movies ;index as i'>
+                <td>{{i+1}}</td>
+                <td>{{movie.movieId}}</td>
+                <td>{{movie.movieName}}</td>
+                <td>{{movie.movieDirector}}</td>
+                <td>{{movie.movieLength}}</td>
+                <td>{{movie.movieReleaseDate}}</td>
+                <td>{{movie.theaterId}}</td>
+                <td> <button class="btn btn-outline-danger" (click)='deleteMovie(movie)'>Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,78 @@
+<div class="color" style="background-color: rgb(170, 163, 124);">
+    <div class="container1">
+        <div class="row">
+
+            <div class="col-md-8 banner-sec">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid"
+                                src="https://cdn.pixabay.com/photo/2017/09/07/08/53/money-2724235__340.jpg"
+                                alt="First slide" height="100%" width="100%">
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>Welcome to Online Movie System</h2>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid"
+                                src="https://cdn.pixabay.com/photo/2018/04/20/21/02/real-estate-3337032__340.jpg"
+                                alt="First slide" height="100%" width="100%">
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>Welcome to Online Movie System</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid"
+                                src="https://cdn.pixabay.com/photo/2015/08/29/02/08/coins-912718__340.jpg"
+                                alt="First slide" height="100%" width="100%">
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>Please Login</h2>
+                                    <p>Please enter your User Name and Password to Login </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 login-sec">
+                <h2 class="text-center">Login Now</h2>
+                <form class="login-form" #loginForm='ngForm' (ngSubmit)='loginUser(loginForm)'>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"  style="color:black; font-size: 20px; 
+                        font-family: Georgia, 'Times New Roman', Times, serif;">userName</label>
+                        <input type="text" name="userName" id="userName" class="form-control"
+                            placeholder="Enter userName" #userName='ngModel' ngModel>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" 
+                            style="color:black; font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" #password='ngModel' ngModel
+                            placeholder="Enter Password">
+                    </div>
+
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <!-- <input type="checkbox" class="form-check-input"> -->
+                            <!-- <a routerLink="/update-password" style="color:black; font-size: 15px;">Forgot Password?</a> -->
+                        </label>
+                        <button type="submit" class="btn btn-login float-right">Submit</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
